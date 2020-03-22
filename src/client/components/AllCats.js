@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CatCard from './CatCard'
+import {loadCats} from '../store/cats'
 
 // why are we exporting so much stuff you might ask?
 // and I would say good question
@@ -15,6 +16,10 @@ export class DisconnectedAllCats extends React.Component {
   render() {
     return (
       <div className='all-cats'>
+        <h1>Peter's Park</h1>
+       {this.props.cats.map(cat=>{
+         return <CatCard key={cat.id} id={cat.id} name = {cat.name} />
+       })}
       </div>
     )
   }
@@ -22,13 +27,13 @@ export class DisconnectedAllCats extends React.Component {
 
 export const mapStateToProps = (state) => {
   return {
-
+    ...state
   }
 }
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-
+    goGetCats:()=>dispatch(loadCats())
   }
 }
 

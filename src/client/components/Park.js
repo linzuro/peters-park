@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { fetchCats } from '../store/cats';
 
 export default class Park extends Component {
 
@@ -8,11 +9,15 @@ export default class Park extends Component {
       // your state here
     }
   }
-
+  componentDidMount(){
+    console.log("hi")
+    fetchCats()
+  }
 
   render() {
     return (
-      <div></div>
+      <div>
+      </div>
     );
 
   }
